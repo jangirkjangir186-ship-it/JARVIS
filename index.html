@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JARVIS AI — Voice Assistant</title>
+
+  <!-- Google Fonts: Rajdhani (futuristic display) + Share Tech Mono (sci-fi mono) -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       BACKGROUND GRID OVERLAY (decorative)
+  ════════════════════════════════════════ -->
+  <div class="grid-overlay"></div>
+
+  <!-- ════════════════════════════════════════
+       CORNER DECORATIONS (HUD style)
+  ════════════════════════════════════════ -->
+  <div class="corner top-left"></div>
+  <div class="corner top-right"></div>
+  <div class="corner bottom-left"></div>
+  <div class="corner bottom-right"></div>
+
+  <!-- ════════════════════════════════════════
+       MAIN CONTAINER
+  ════════════════════════════════════════ -->
+  <div class="container">
+
+    <!-- Header / Title -->
+    <header class="header">
+      <div class="header-line"></div>
+      <div class="header-content">
+        <span class="header-tag">[ SYSTEM ONLINE ]</span>
+        <h1 class="title">J.A.R.V.I.S</h1>
+        <p class="subtitle">Just A Rather Very Intelligent System</p>
+      </div>
+      <div class="header-line"></div>
+    </header>
+
+    <!-- ── Central Orb (the main mic button) ── -->
+    <div class="orb-wrapper">
+
+      <!-- Outer pulse rings (animated when listening) -->
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+
+      <!-- The main clickable orb -->
+      <button class="orb" id="micBtn" onclick="toggleListening()" title="Click to speak">
+
+        <!-- Mic SVG icon -->
+        <svg class="mic-icon" id="micIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z" fill="currentColor"/>
+          <path d="M17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12H5C5 15.53 7.61 18.43 11 18.92V22H13V18.92C16.39 18.43 19 15.53 19 12H17Z" fill="currentColor"/>
+        </svg>
+
+        <!-- Stop icon (shown when speaking) -->
+        <svg class="stop-icon" id="stopIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+          <rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+        </svg>
+
+      </button>
+    </div>
+
+    <!-- ── Status text shown below orb ── -->
+    <div class="status-area">
+      <div class="status-dot" id="statusDot"></div>
+      <p class="status-text" id="statusText">Click the orb to speak</p>
+    </div>
+
+    <!-- ── What user said (speech-to-text display) ── -->
+    <div class="transcript-box" id="transcriptBox">
+      <span class="transcript-label">YOU SAID</span>
+      <p class="transcript-text" id="transcriptText">—</p>
+    </div>
+
+    <!-- ── What JARVIS replied ── -->
+    <div class="response-box" id="responseBox">
+      <span class="response-label">JARVIS</span>
+      <p class="response-text" id="responseText">Initializing systems... Say something to begin.</p>
+    </div>
+
+    <!-- ── Sound wave visualizer (CSS animated, active during speech) ── -->
+    <div class="wave-visualizer" id="waveVisualizer">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+
+    <!-- ── Quick command hints ── -->
+    <div class="hints">
+      <span class="hint-label">TRY SAYING:</span>
+      <div class="hint-chips">
+        <span class="chip" onclick="simulateCommand('What time is it?')">What time is it?</span>
+        <span class="chip" onclick="simulateCommand('What is today\'s date?')">Today's date?</span>
+        <span class="chip" onclick="simulateCommand('Who are you?')">Who are you?</span>
+        <span class="chip" onclick="simulateCommand('Open Google')">Open Google</span>
+        <span class="chip" onclick="simulateCommand('Tell me a joke')">Tell me a joke</span>
+        <span class="chip" onclick="simulateCommand('How are you?')">How are you?</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>JARVIS v2.0</span>
+      <span>[ CHROME RECOMMENDED ]</span>
+      <span>VOICE ENGINE: ACTIVE</span>
+    </footer>
+
+  </div><!-- end .container -->
+
+  <!-- Link to external script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
